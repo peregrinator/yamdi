@@ -1,6 +1,69 @@
 = yamdi
 
-Description goes here.
+Yamdi is a ruby wrapper around the command line tool yamdi (github.com/ioppermann/yamdi). You'll need yamdi installed in order for the gem to be of any use. If you are on OSX I recommend using homebrew (brew install yamdi).
+
+The Yamdi command line tool expects to receive a path to an flv file and will return XML file of the extracted metadata that we then wrap in a ruby object and use to expose the metadata.
+
+The current gem version only supports the reading of metadata. The command line tool also supports the writing of the metadata into a new .flv file but this is not yet supported in this gem.
+
+
+== Usage
+
+@metadata = Yamdi.new('path/to/file.flv')
+
+@metadata.duration #=> 6.02
+
+@metadata.key_frames.each do |key_frame|
+  key_frame.time     #=> 5.87
+  key_frame.location #=> 13467
+end
+
+=== Paperclip Processor
+
+You can also use Yamdi in a Paperclip processor. I've provided a simple example in lib/paperclip_processors/metadata_extractor.rb
+
+This is useful for adding things like video duration to your db when a user uploads a video.
+
+== Supported methods
+
+duration          :: float, in seconds
+                  
+has_keyframes?    :: boolean
+has_video?        :: boolean
+has_audio?        :: boolean
+has_metadata?     :: boolean
+has_cue_points?   :: boolean
+can_seek_to_end?  :: boolean
+                  
+audio_codec_id    :: integer
+audio_sample_rate :: integer
+audio_data_rate   :: integer
+audio_sample_size :: integer
+audio_delay       :: float, in seconds
+
+stereo?           :: boolean
+
+video_codec_id    :: integer
+frame_rate        :: float, in seconds
+video_data_rate   :: integer
+
+height            :: integer
+width             :: integer
+
+data_size         :: integer
+audio_size        :: integer
+video_size        :: integer
+file_size         :: integer
+
+last_timestamp             :: float, in seconds
+last_video_frame_timestamp :: float, in seconds
+last_key_frame_timestamp   :: float, in seconds
+last_key_frame_location    :: integer
+
+key_frames :: Array of key frame data, each item contains the following
+  time     :: float, in seconds
+  location :: integer
+  
 
 == Contributing to yamdi
  
