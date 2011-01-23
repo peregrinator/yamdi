@@ -9,14 +9,14 @@ The current gem version only supports the reading of metadata. The command line 
 
 == Usage
 
-@metadata = Yamdi.new('path/to/file.flv')
+  @metadata = Yamdi.new('path/to/file.flv')
 
-@metadata.duration #=> 6.02
+  @metadata.duration #=> 6.02
 
-@metadata.key_frames.each do |key_frame|
-  key_frame.time     #=> 5.87
-  key_frame.location #=> 13467
-end
+  @metadata.key_frames.each do |key_frame|
+    key_frame.time     #=> 5.87
+    key_frame.location #=> 13467
+  end
 
 === Paperclip Processor
 
@@ -61,8 +61,8 @@ last_key_frame_timestamp   :: float, in seconds
 last_key_frame_location    :: integer
 
 key_frames :: Array of key frame data, each item contains the following
-  time     :: float, in seconds
-  location :: integer
+- time     :: float, in seconds
+- location :: integer
   
 
 == Contributing to yamdi
