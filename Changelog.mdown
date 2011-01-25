@@ -1,3 +1,8 @@
+== 0.1.1 (January 25, 2011)
+
+* Fix errant require that caused gem to fail but tests to pass. [Bob Burbach]
+* Update documentation in the paperclip processor with regards to running the processors in the background and ensuring the attachment instance is saved. [Bob Burbach]
+
 == 0.1.0 (January 22, 2011)
 
 * Initial version of gem supporting reading of metadata attributes from flv files. [Bob Burbach]
