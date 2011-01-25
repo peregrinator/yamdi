@@ -1,5 +1,6 @@
 require 'tempfile'
 require 'ostruct'
+require 'nokogiri'
 
 class Yamdi
   
