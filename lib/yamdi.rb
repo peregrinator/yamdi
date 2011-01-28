@@ -2,7 +2,11 @@ require 'tempfile'
 require 'ostruct'
 require 'nokogiri'
 
+require 'key_frame'
+
 class Yamdi
+  
+  attr_accessor :metadata
   
   def initialize(flv_path)
     @metadata = Nokogiri.parse( parse(flv_path) )
@@ -121,26 +125,7 @@ class Yamdi
   end
   
   def key_frames
-    times_data_xml = @metadata.xpath("//keyframes/times/value")
-    times = []
-    times_data_xml.children.each do |el|
-      times << el.inner_text.to_f
-    end
-    
-    file_positions_xml = @metadata.xpath("//keyframes/filepositions/value")
-    file_positions = []
-    file_positions_xml.children.each do |el|
-      file_positions << el.inner_text.to_i
-    end
-    
-    count = 0
-    key_frames = []
-    while count < times.size do
-      key_frames << OpenStruct.new(:time => times[count], :file_position => file_positions[count])
-      count = count + 1
-    end
-    
-    key_frames
+    KeyFrame.all_from_xml(@metadata.xpath("//keyframes"))
   end
   
   private

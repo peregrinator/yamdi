@@ -116,26 +116,9 @@ describe "Yamdi" do
     @yamdi.last_key_frame_location.should eq(83017)
   end
   
-  context "key frames" do
-    before(:all) do
-      @key_frame_1 = @yamdi.key_frames.first
-      @key_frame_2 = @yamdi.key_frames.last
-    end
-    
-    it "returns an array of key frame open structs" do
-       @yamdi.key_frames.class.should eq(Array)
-       @yamdi.key_frames.first.class.should eq(OpenStruct)
-       @yamdi.key_frames.last.class.should eq(OpenStruct)
-    end
-    
-    it "returns the proper time values" do
-      @key_frame_1.time.should eq(0.04)
-      @key_frame_2.time.should eq(6.04)
-    end
-    
-    it "returns the proper file position values" do
-      @key_frame_1.file_position.should eq(1327)
-      @key_frame_2.file_position.should eq(83017)
-    end
+  it "returns an array of key frames" do
+     @yamdi.key_frames.class.should eq(Array)
+     @yamdi.key_frames.first.class.should eq(KeyFrame)
+     @yamdi.key_frames.last.class.should eq(KeyFrame)
   end
 end
