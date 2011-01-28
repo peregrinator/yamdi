@@ -16,8 +16,8 @@ Tested under ruby 1.8.7 and 1.9.2
   @metadata.duration #=> 6.02
 
   @metadata.key_frames.each do |key_frame|
-    key_frame.time     #=> 5.87
-    key_frame.location #=> 13467
+    key_frame.time          #=> 5.87
+    key_frame.file_position #=> 13467
   end
 
 === Paperclip Processor
@@ -77,8 +77,8 @@ last_key_frame_timestamp   :: float, in seconds
 last_key_frame_location    :: integer
 
 key_frames :: Array of key frame data, each item contains the following
-- time     :: float, in seconds
-- location :: integer
+- time          :: float, in seconds
+- file_position :: integer
   
 
 == Contributing to yamdi
