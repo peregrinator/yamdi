@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{yamdi}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Bob Burbach"]
-  s.date = %q{2011-01-25}
+  s.date = %q{2011-01-28}
   s.description = %q{Yamdi is a ruby wrapper around the command line tool yamdi (github.com/ioppermann/yamdi). You'll need yamdi installed in order for the gem to be of any use. If you are on OSX I recommend using homebrew (brew install yamdi).}
   s.email = %q{bob.burbach@gmail.com}
   s.extra_rdoc_files = [
@@ -26,9 +26,12 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "lib/key_frame.rb",
     "lib/paperclip_processors/metadata_extractor.rb",
+    "lib/tasks/metadata_refresh.rake",
     "lib/yamdi.rb",
     "spec/files/sample.flv",
+    "spec/key_frame_spec.rb",
     "spec/spec_helper.rb",
     "spec/yamdi_spec.rb",
     "yamdi.gemspec"
@@ -39,6 +42,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Yamdi is a ruby wrapper around the command line tool yamdi (github.com/ioppermann/yamdi).}
   s.test_files = [
+    "spec/key_frame_spec.rb",
     "spec/spec_helper.rb",
     "spec/yamdi_spec.rb"
   ]
