@@ -1,3 +1,16 @@
+# This assumes that you are using paperclip.
+# For example you may Video model with an attachment of video.
+# truncated example:
+# class Video
+#   has_attached_file :video,
+#                     :styles => {:orginal => {}},
+#                     :processors => [:metadata_extractor]
+# end
+#
+# Remember for processors to work you must define styles on
+# has_attached_file. Even if they are just blank as the example
+# above. Without them processors won't be triggered.
+
 module Paperclip
   class MetadataExtractor < Paperclip::Processor
     def make

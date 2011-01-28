@@ -1,3 +1,8 @@
+== 0.1.2 (January 28, 2011)
+
+* Move key frames into a class of their own. [Bob Burbach]
+* Update documentation and provide example rake task for refreshing metadata. [Bob Burbach]
+
 == 0.1.1 (January 25, 2011)
 
 * Fix errant require that caused gem to fail but tests to pass. [Bob Burbach]

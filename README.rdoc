@@ -6,6 +6,8 @@ The Yamdi command line tool expects to receive a path to an flv file and will re
 
 The current gem version only supports the reading of metadata. The command line tool also supports the writing of the metadata into a new .flv file but this is not yet supported in this gem.
 
+Tested under ruby 1.8.7 and 1.9.2
+
 
 == Usage
 
@@ -23,6 +25,20 @@ The current gem version only supports the reading of metadata. The command line 
 You can also use Yamdi in a Paperclip processor. I've provided a simple example in lib/paperclip_processors/metadata_extractor.rb
 
 This is useful for adding things like video duration to your db when a user uploads a video.
+
+  class Video
+    has_attached_file :video,
+                      :styles => {:orginal => {}},
+                      :processors => [:metadata_extractor]
+  end
+  
+Be sure you add the styles hash even if it is empty as above or your paperclip processors won't run.
+
+=== Refreshing Exisitng Videos
+
+Perhaps you're adding yamdi to your current set up, want to refresh the data in your models or add a new column to present to your users.
+
+This is easily accomplished of you are using Paperclip. I've added an example rake task in lib/tasks/metadata_refresh.rake
 
 == Supported methods
 
